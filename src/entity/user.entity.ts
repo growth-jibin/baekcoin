@@ -10,34 +10,37 @@ export class user {
   mail: string;
 
   //보유 코인
-  @Column()
+  @Column({ default: 0 })
   Abd: number;
-  @Column()
+  @Column({ default: 0 })
   Splendorous: number;
-  @Column()
+  @Column({ default: 0 })
   Karamat: number;
-  @Column()
+  @Column({ default: 0 })
   Hamza: number;
-  @Column()
+  @Column({ default: 0 })
   Aeneas: number;
-  @Column()
+  @Column({ default: 0 })
   Tor: number;
-  @Column()
+  @Column({ default: 0 })
   Ivar: number;
-  @Column()
+  @Column({ default: 0 })
   Beorn: number;
-  @Column()
+  @Column({ default: 0 })
   Indivar: number;
-  @Column()
+  @Column({ default: 0 })
   Jek: number;
-  @Column()
+  @Column({ default: 0 })
   Mann: number;
-  @Column()
+  @Column({ default: 0 })
   Isiah: number;
-  @Column()
+  @Column({ default: 0 })
   Valdus: number;
-  @Column()
+  @Column({ default: 0 })
   Lorcan: number;
-  @Column()
+  @Column({ default: 0 })
   Cadman: number;
+  //돈
+  @Column({ default: 0 })
+  money: number;
 }
