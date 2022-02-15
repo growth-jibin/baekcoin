@@ -1,7 +1,8 @@
-import { Body, Controller, Get, Post, Res } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post, Res } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { authUserDto } from './DTO/user.dto';
 import { Response } from 'express';
+import { user } from 'src/entity/user.entity';
 
 @Controller('auth')
 export class AuthController {
@@ -18,5 +19,10 @@ export class AuthController {
     } catch (e) {
       res.status(400).json(e);
     }
+  }
+  @Patch('/patch')
+  async patch(@Body() pw: string, @Body() User: user) {
+    console.log(pw);
+    this.Authservice.patch(pw, User);
   }
 }

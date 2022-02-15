@@ -39,4 +39,7 @@ export class AuthService {
       access_token: await this.jwtService.sign(payload),
     };
   }
+  async patch(pw: string, User: user) {
+    this.userRepository.update(pw, User);
+  }
 }
