@@ -18,6 +18,7 @@ export class AuthService {
       throw new UnauthorizedException();
     }
     const hashpw = await bcrypt.hash(data.pw, 10);
+
     const UserData = this.userRepository.create({
       id: data.id,
       pw: hashpw,
@@ -39,7 +40,16 @@ export class AuthService {
       access_token: await this.jwtService.sign(payload),
     };
   }
-  async patch(pw: string, User: user) {
-    this.userRepository.update(pw, User);
+  async patch(id: string, changedpw: string) {
+    const hashingchangedpassword = await bcrypt.hash(changedpw, 10);
+
+    const user = await this.userRepository.findOne({ id: id });
+
+    user.pw = hashingchangedpassword;
+
+    this.userRepository.save(user);
+  }
+  async delete(id: string) {
+    this.userRepository.delete({ id: id });
   }
 }

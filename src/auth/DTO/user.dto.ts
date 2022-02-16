@@ -2,9 +2,15 @@ import { IsOptional, IsString } from 'class-validator';
 
 export class authUserDto {
   @IsString()
-  readonly id?: string;
+  @IsOptional()
+  readonly id: string;
   @IsString()
-  readonly pw?: string;
+  @IsOptional()
+  readonly pw: string;
   @IsString()
-  readonly mail?: string;
+  @IsOptional()
+  readonly mail: string;
+  @IsString()
+  @IsOptional()
+  readonly changedpw: string;
 }
