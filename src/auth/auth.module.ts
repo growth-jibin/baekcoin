@@ -6,10 +6,18 @@ import { user } from 'src/entity/user.entity';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from './constants';
+import { MailerModule } from '@nestjs-modules/mailer';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([user]),
+    MailerModule.forRoot({
+      transport: {
+        service: 'gmail',
+        host: 'smtp@gmail.com',
+        auth: {},
+      },
+    }),
     PassportModule,
     JwtModule.register({
       secret: jwtConstants.secret,

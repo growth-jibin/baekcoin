@@ -4,12 +4,14 @@ import { user } from 'src/entity/user.entity';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
+import { MailerService } from '@nestjs-modules/mailer';
 
 @Injectable()
 export class AuthService {
   constructor(
     @InjectRepository(user) private userRepository: Repository<user>,
     private readonly jwtService: JwtService,
+    private readonly mailerService: MailerService,
   ) {}
   async register(data: any) {
     const user = await this.userRepository.findOne({ id: data.id });
@@ -51,5 +53,16 @@ export class AuthService {
   }
   async delete(id: string) {
     this.userRepository.delete({ id: id });
+  }
+  async sendMail(mail: string) {
+    const number: number = 1234;
+    console.log(number);
+
+    await this.mailerService.sendMail({
+      to: mail,
+      subject: 'test code',
+      html: '6자리 코드:' + `<b>${number}</b>`,
+    });
+    return number;
   }
 }

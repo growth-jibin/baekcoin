@@ -27,4 +27,8 @@ export class AuthController {
   async delete(@Body() data: authUserDto) {
     this.Authservice.delete(data.id);
   }
+  @Post('send')
+  async sendMail(@Body() data: authUserDto) {
+    return this.Authservice.sendMail(data.mail);
+  }
 }
