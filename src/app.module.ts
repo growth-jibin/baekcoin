@@ -5,6 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { user } from './entity/user.entity';
+import { MailerModule } from '@nestjs-modules/mailer';
 
 @Module({
   imports: [
@@ -21,6 +22,16 @@ import { user } from './entity/user.entity';
       database: process.env.DB_NAME,
       entities: [user],
       synchronize: true,
+    }),
+    MailerModule.forRoot({
+      transport: {
+        service: 'Gmail',
+        host: 'smtp.gmail.com',
+        auth: {
+          user: '@gmail.com',
+          pass: '',
+        },
+      },
     }),
   ],
   controllers: [AppController],

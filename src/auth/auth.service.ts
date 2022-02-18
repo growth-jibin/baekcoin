@@ -57,11 +57,13 @@ export class AuthService {
   async sendMail(mail: string) {
     const number: number = 1234;
     console.log(number);
+    console.log(mail);
 
     await this.mailerService.sendMail({
       to: mail,
+      from: '최형우',
       subject: 'test code',
-      html: '6자리 코드:' + `<b>${number}</b>`,
+      html: '6자리 숫자' + `<b>${number}</b>`,
     });
     return number;
   }

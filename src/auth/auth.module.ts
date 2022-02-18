@@ -11,13 +11,6 @@ import { MailerModule } from '@nestjs-modules/mailer';
 @Module({
   imports: [
     TypeOrmModule.forFeature([user]),
-    MailerModule.forRoot({
-      transport: {
-        service: 'gmail',
-        host: 'smtp@gmail.com',
-        auth: {},
-      },
-    }),
     PassportModule,
     JwtModule.register({
       secret: jwtConstants.secret,
