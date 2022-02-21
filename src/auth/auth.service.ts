@@ -54,17 +54,15 @@ export class AuthService {
   async delete(id: string) {
     this.userRepository.delete({ id: id });
   }
-  async sendMail(mail: string) {
-    const number: number = 1234;
-    console.log(number);
-    console.log(mail);
+  async findid(mail: string) {
+    const user = await this.userRepository.findOne({ mail: mail });
 
     await this.mailerService.sendMail({
       to: mail,
       from: '최형우',
-      subject: 'test code',
-      html: '6자리 숫자' + `<b>${number}</b>`,
+      subject: '고객님의 아이디',
+      html: '아이디:' + `<b>${user.id}</b>` + '입니다',
     });
-    return number;
+    return user.id;
   }
 }

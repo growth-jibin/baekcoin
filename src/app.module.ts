@@ -28,8 +28,8 @@ import { MailerModule } from '@nestjs-modules/mailer';
         service: 'Gmail',
         host: 'smtp.gmail.com',
         auth: {
-          user: '@gmail.com',
-          pass: '',
+          user: 'jibin200584@gmail.com',
+          pass: process.env.MAIL_PW,
         },
       },
     }),
