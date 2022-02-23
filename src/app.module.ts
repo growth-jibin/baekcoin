@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { user } from './entity/user.entity';
 import { MailerModule } from '@nestjs-modules/mailer';
+import { CoinModule } from './coin/coin.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { MailerModule } from '@nestjs-modules/mailer';
         },
       },
     }),
+    CoinModule,
   ],
   controllers: [AppController],
   providers: [AppService],
