@@ -7,6 +7,7 @@ import { ConfigModule } from '@nestjs/config';
 import { user } from './entity/user.entity';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { CoinModule } from './coin/coin.module';
+import { coin } from './entity/coin.entity';
 
 @Module({
   imports: [
@@ -21,7 +22,7 @@ import { CoinModule } from './coin/coin.module';
       username: process.env.DB_USER,
       password: process.env.DB_PW,
       database: process.env.DB_NAME,
-      entities: [user],
+      entities: [user, coin],
       synchronize: true,
     }),
     MailerModule.forRoot({

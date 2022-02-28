@@ -8,10 +8,10 @@ export class coin {
   name: string;
   @Column()
   company: string;
-  @Column()
+  @Column({ default: 0 })
   price: number;
-  @Column()
+  @Column({ default: 0 })
   last_price: number;
-  @Column()
+  @Column({ default: 0 })
   sales_rate: number;
 }
