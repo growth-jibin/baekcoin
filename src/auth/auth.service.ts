@@ -56,7 +56,6 @@ export class AuthService {
   }
   async findid(mail: string) {
     const user = await this.userRepository.findOne({ mail: mail });
-
     await this.mailerService.sendMail({
       to: mail,
       from: '최형우',
