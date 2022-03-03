@@ -37,7 +37,7 @@ export class AuthService {
     if (User && (await User).id !== data.id) {
       throw new UnauthorizedException();
     }
-    const payload = { id: data.id, mail: data.mail };
+    const payload = { id: data.id };
     return {
       access_token: await this.jwtService.sign(payload),
     };
