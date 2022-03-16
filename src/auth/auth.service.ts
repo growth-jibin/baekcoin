@@ -64,4 +64,9 @@ export class AuthService {
     });
     return user.id;
   }
+  async test(data: any) {
+    console.log(data);
+    const tt = await this.jwtService.decode(data);
+    console.log(tt);
+  }
 }

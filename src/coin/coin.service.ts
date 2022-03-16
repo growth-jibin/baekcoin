@@ -12,7 +12,8 @@ export class CoinService {
   ) {}
   async createcoin(name: string, company: string, data: any) {
     const token = await this.jwtService.decode(data);
-    if (token['id'] != process.env.ADMIN) {
+    console.log(token);
+    if (token['sub'] != process.env.ADMIN) {
       throw new UnauthorizedException({ message: '어드민이 아님ㅋㅋ' });
     }
     const price: number = Math.floor(Math.random() * 1000);

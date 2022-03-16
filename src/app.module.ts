@@ -8,6 +8,7 @@ import { user } from './entity/user.entity';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { CoinModule } from './coin/coin.module';
 import { coin } from './entity/coin.entity';
+import { EventGateway } from './coin/coin.gateway';
 
 @Module({
   imports: [
@@ -38,6 +39,6 @@ import { coin } from './entity/coin.entity';
     CoinModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, EventGateway],
 })
 export class AppModule {}

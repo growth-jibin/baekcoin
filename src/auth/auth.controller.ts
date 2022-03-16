@@ -1,4 +1,13 @@
-import { Body, Controller, Delete, Patch, Post, Res } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Patch,
+  Post,
+  Req,
+  Res,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { authUserDto } from './DTO/user.dto';
 import { Response } from 'express';
@@ -30,5 +39,9 @@ export class AuthController {
   @Post('/find')
   async sendMail(@Body() data: authUserDto) {
     return this.Authservice.findid(data.mail);
+  }
+  @Get()
+  async fuck(@Req() req) {
+    await this.Authservice.test(req.headers['user']);
   }
 }
