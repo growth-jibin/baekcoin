@@ -31,4 +31,9 @@ export class CoinService {
     return await this.coinRepository.delete(coinid);
   }
   async coin() {}
+  async CoinList() {
+    const coin = await this.coinRepository.find();
+
+    return coin;
+  }
 }
