@@ -24,7 +24,5 @@ export class CoinController {
     );
   }
   @Delete('/delete/:id')
-  async deleteCoin(@Param('id') coinid: number) {
-    await this.coinService.deletecoin(coinid);
-  }
+  async deleteCoin(@Param('id') coinid: number) {}
 }

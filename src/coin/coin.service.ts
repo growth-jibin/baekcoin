@@ -24,16 +24,10 @@ export class CoinService {
     });
     await this.coinRepository.save(coinData);
   }
-  async findcoin(coinid: number) {
-    return await this.coinRepository.find({ id: coinid });
-  }
-  async deletecoin(coinid: number) {
-    return await this.coinRepository.delete(coinid);
-  }
   async coin() {}
   async CoinList() {
     const coin = await this.coinRepository.find();
-
     return coin;
   }
+  async mycoin() {}
 }
